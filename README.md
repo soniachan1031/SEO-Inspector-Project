@@ -64,6 +64,27 @@ A full-stack web application that allows users to input any public URL and recei
    - Social media preview
    - Detailed tag analysis
 
+## Application Interface
+
+![SEO Tag Visual Inspector Screenshot](screenshot.png)
+
+The application interface consists of:
+
+1. **URL Input Bar** - At the top where users can enter any website URL to analyze
+
+2. **SEO Tag Analysis Panel** - On the left, showing:
+   - Overall SEO score (41/100 in the example)
+   - Status indicators for various SEO tags:
+     - ⚠️ Yellow warnings for tags that need improvement
+     - ❌ Red indicators for missing tags
+   - Specific tag issues such as "Title is too short", "Meta description is missing", etc.
+
+3. **Google Preview** - In the center, displaying how the page would appear in Google search results
+
+4. **Social Media Preview** - On the right, showing how the page would appear when shared on social platforms
+
+Each SEO tag is analyzed individually with clear visual indicators of issues that need to be addressed to improve the overall SEO score.
+
 ## Project Structure
 
 ```
