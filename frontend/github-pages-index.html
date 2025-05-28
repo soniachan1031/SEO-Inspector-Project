@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Tag Visual Inspector</title>
+    <title>SEO Tag Visual Inspector - Static Demo</title>
     <style>
         /* Base Styles */
         :root {
@@ -412,25 +412,16 @@
                 let title = domain.split('.')[0];
                 title = title.charAt(0).toUpperCase() + title.slice(1) + ' Portfolio';
                 
-                // Generate a consistent score based on the URL
+                // Update score based on URL (just for demo effect)
                 const scoreValue = document.getElementById('score-value');
-                
-                // Simple hash function to convert URL to a numeric value
-                let hashValue = 0;
-                for (let i = 0; i < url.length; i++) {
-                    hashValue = ((hashValue << 5) - hashValue) + url.charCodeAt(i);
-                    hashValue = hashValue & hashValue; // Convert to 32bit integer
-                }
-                
-                // Use the absolute value and scale to our desired range (50-80)
-                const consistentScore = 50 + (Math.abs(hashValue) % 31);
-                scoreValue.textContent = consistentScore;
+                const randomScore = Math.floor(Math.random() * 31) + 50; // Random score between 50-80
+                scoreValue.textContent = randomScore;
                 
                 // Update score color
                 const scoreCircle = document.querySelector('.score-circle');
-                if (consistentScore >= 80) {
+                if (randomScore >= 80) {
                     scoreCircle.style.backgroundColor = '#28a745'; // Green
-                } else if (consistentScore >= 60) {
+                } else if (randomScore >= 60) {
                     scoreCircle.style.backgroundColor = '#ffc107'; // Yellow
                 } else {
                     scoreCircle.style.backgroundColor = '#dc3545'; // Red
