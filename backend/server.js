@@ -77,14 +77,23 @@ app.post('/api/analyze', async (req, res) => {
     // Ensure URL has proper protocol
     url = ensureProtocol(url);
 
-    // Fetch the HTML content
-    const response = await axios.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-      }
-    });
-
-    const html = response.data;
+    // Fetch the HTML content with better error handling
+    let html;
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        },
+        timeout: 10000 // 10 second timeout
+      });
+      html = response.data;
+    } catch (error) {
+      console.error('Error accessing website:', error.message);
+      return res.status(400).json({ 
+        error: 'Could not access website', 
+        message: 'This website blocks external access. Try a different website that allows content to be analyzed.'
+      });
+    }
     const $ = cheerio.load(html);
     
     // Extract and analyze SEO tags

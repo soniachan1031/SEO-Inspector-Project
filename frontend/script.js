@@ -177,8 +177,19 @@ document.addEventListener('DOMContentLoaded', () => {
             
         } catch (error) {
             console.error('Error:', error);
-            alert(`Error analyzing URL: ${error.message}`);
             loadingElement.classList.add('hidden');
+            
+            // Handle error response from the server
+            let errorMessage = 'Error analyzing URL';
+            
+            if (error.response && error.response.data) {
+                const { error: errorType, message } = error.response.data;
+                errorMessage = message || errorType || errorMessage;
+            } else {
+                errorMessage += `: ${error.message}`;
+            }
+            
+            alert(errorMessage);
         }
     });
     
