@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const socialImage = document.getElementById('social-image');
     const socialImageContainer = document.getElementById('social-image-container');
     
-    // API endpoint (change if your backend is running on a different port)
-    const API_URL = 'http://localhost:3000/api/analyze';
+    // API endpoint - automatically use the current domain in production
+    const API_URL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000/api/analyze'
+        : '/api/analyze';
     
     // Function to ensure URL has protocol
     function ensureProtocol(url) {
