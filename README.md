@@ -68,6 +68,8 @@ A full-stack web application that allows users to input any public URL and recei
 
 <img width="623" alt="demo" src="https://github.com/user-attachments/assets/a5895d5f-95ea-4862-be40-4d11df7a981e" />
 
+<img width="623" alt="demo" src="https://github.com/user-attachments/assets/4c7530e5-d221-4dd4-bf4c-7ba0ead11985" />
+
 The application interface consists of:
 
 1. **URL Input Bar** - At the top where users can enter any website URL to analyze
