@@ -66,7 +66,7 @@ A full-stack web application that allows users to input any public URL and recei
 
 ## Application Interface
 
-![SEO Tag Visual Inspector Screenshot](<img width="623" alt="demo" src="https://github.com/user-attachments/assets/b89a998b-b463-4d6e-b289-98c387d29475" />)
+<img width="623" alt="demo" src="https://github.com/user-attachments/assets/a5895d5f-95ea-4862-be40-4d11df7a981e" />
 
 The application interface consists of:
 
