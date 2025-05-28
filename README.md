@@ -64,6 +64,66 @@ A full-stack web application that allows users to input any public URL and recei
    - Social media preview
    - Detailed tag analysis
 
+## SEO Scoring System
+
+The SEO Tag Visual Inspector uses a weighted scoring system to evaluate webpage SEO quality. Each tag is assigned points based on its importance to search engine optimization.
+
+### Tag Weighting
+
+| SEO Element           | Weight | Description |
+|-----------------------|--------|-------------|
+| Title                 | 15     | The page's main title tag |
+| Meta Description      | 15     | Description that appears in search results |
+| Title Length          | 10     | Optimal length of the title tag (50-60 characters) |
+| Description Length    | 10     | Optimal length of meta description (50-160 characters) |
+| Open Graph Title      | 10     | Title for social media sharing |
+| Open Graph Description | 10    | Description for social media sharing |
+| Open Graph Image      | 10     | Image shown when shared on social media |
+| Meta Robots           | 5      | Instructions for search engine crawlers |
+| Twitter Title         | 5      | Title for Twitter card |
+| Twitter Description   | 5      | Description for Twitter card |
+| Twitter Image         | 5      | Image for Twitter card |
+
+### Status Evaluation
+
+Each tag is evaluated and assigned one of three statuses:
+
+| Status  | Visual Indicator | Points Earned | Description |
+|---------|------------------|---------------|-------------|
+| Pass    | ✅ Green         | 100% of weight | Tag exists and meets quality criteria |
+| Warning | ⚠️ Yellow        | 50% of weight  | Tag exists but has issues (e.g., too short/long) |
+| Fail    | ❌ Red           | 0% of weight   | Tag is missing or invalid |
+
+### Score Calculation
+
+The final score is calculated as:
+
+1. For each tag with status "pass", its full weight is added to the score
+2. For each tag with status "warning", half its weight is added to the score 
+3. For each tag with status "fail", no points are added
+4. Final percentage = (Total points earned / Total possible points) × 100
+5. Result is rounded to the nearest whole number
+
+### Visual Representation
+
+The final score is color-coded for quick assessment:
+
+- **Green (≥80)**: Good SEO implementation
+- **Yellow (60-79)**: Needs some improvement
+- **Red (<60)**: Poor SEO implementation, requires significant improvement
+
+### Example Calculation
+
+For a page with:
+- Good title (pass = 15 points)
+- Missing meta description (fail = 0 points)
+- Title length optimal (pass = 10 points)
+- No OG tags (fail = 0 points for og:title, og:description, og:image)
+- No Twitter tags (fail = 0 points for all Twitter elements)
+- No robots tag (fail = 0 points)
+
+Total: 25/100 points = 25% (Red indicator)
+
 ## Application Interface
 
 <img width="623" alt="demo" src="https://github.com/user-attachments/assets/a5895d5f-95ea-4862-be40-4d11df7a981e" />
