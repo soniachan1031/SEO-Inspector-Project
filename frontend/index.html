@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Tag Visual Inspector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SEO Tag Visual Inspector</h1>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="url-input" placeholder="example.com" required autocomplete="off" spellcheck="false">
+            <button id="analyze-btn">Check</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing URL...</p>
+        </div>
+        
+        <div id="results-container" class="hidden">
+            <div class="results-grid">
+                <div class="seo-analysis-card">
+                    <h2>SEO Tag Analysis</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="score-value">0</span>
+                        </div>
+                        <span class="score-label">/100</span>
+                    </div>
+                    <div id="seo-tags"></div>
+                </div>
+                
+                <div class="preview-card">
+                    <h2>Google Preview</h2>
+                    <div class="google-preview" id="google-preview">
+                        <h3 id="google-title">Example Domain</h3>
+                        <a id="google-url" href="#">https://example.com</a>
+                        <p id="google-description">This is an example description.</p>
+                    </div>
+                </div>
+                
+                <div class="preview-card">
+                    <h2>Social Media Preview</h2>
+                    <div class="social-preview" id="social-preview">
+                        <h3 id="social-title">Example Domain</h3>
+                        <p id="social-description">This is an example description.</p>
+                        <div id="social-image-container">
+                            <img id="social-image" src="" alt="og:image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SEO Tag Visual Inspector</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
