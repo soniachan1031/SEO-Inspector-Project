@@ -199,4 +199,36 @@ document.addEventListener('DOMContentLoaded', () => {
             analyzeBtn.click();
         }
     });
+
+    // Theme Switcher Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const bodyElement = document.body;
+    const localStorageKey = 'darkModeEnabled';
+
+    // Function to apply theme based on preference
+    const applyTheme = (isDarkMode) => {
+        if (isDarkMode) {
+            bodyElement.classList.add('dark-mode');
+            if (themeToggle) themeToggle.checked = true;
+        } else {
+            bodyElement.classList.remove('dark-mode');
+            if (themeToggle) themeToggle.checked = false;
+        }
+    };
+
+    // Load saved theme preference when the page loads
+    // Check if themeToggle exists to prevent errors if element is missing
+    if (themeToggle) {
+        const savedPreference = localStorage.getItem(localStorageKey);
+        // If savedPreference is null (first visit), default to light mode (false).
+        // Otherwise, parse the string 'true' or 'false' to a boolean.
+        applyTheme(savedPreference === 'true');
+
+        // Event listener for theme toggle
+        themeToggle.addEventListener('change', () => {
+            const isDarkMode = themeToggle.checked;
+            applyTheme(isDarkMode);
+            localStorage.setItem(localStorageKey, isDarkMode);
+        });
+    }
 });
